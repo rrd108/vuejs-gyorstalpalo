@@ -70,13 +70,20 @@ export default {
 <style scoped>
 .completed {
   text-decoration: line-through;
-  color: #aaa;
+  color: #4fc08d;
+  border: 0;
+}
+.completed:hover {
+  background: white;
+  color: #4fc08d;
 }
 h1 {
-  background: #333;
-  color: #fff;
+  background: #4fc08d;
+  color: white;
   padding: 1rem;
+  text-align: center;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -86,5 +93,14 @@ ul {
 }
 li {
   margin: 1rem;
+  position: relative;
+  top: 0.5em;
+  border-bottom: 1px solid #4fc08d;
+  padding: 10px 10px;
+}
+li:hover {
+  background: #4fc08d;
+  color: white;
+  transition: 0.5s;
 }
 </style>
