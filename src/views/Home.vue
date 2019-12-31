@@ -11,57 +11,30 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'home',
 
-  components: {
-
-  },
-
   data() {
     return {
-      title: 'Gauranga',
-      tasks: [
-        {
-          id: 1,
-          name: 'Első teszt feladat',
-          completed: false,
-          due: '2019-12-27'
-        },
-        {
-          id: 2,
-          name: 'Vue.js doksi olvasás',
-          completed: true,
-          due: '2020-01-15'
-        },
-        {
-          id: 3,
-          name: 'Hármas feladat',
-          completed: false,
-          due: '2020-01-22'
-        },
-        {
-          id: 4,
-          name: 'Négyes feladat',
-          completed: false,
-          due: '2020-02-07'
-        },
-      ],
+      tasks: [],
     }
   },
 
-  computed: {
-
-  },
-
   created() {
-
+    axios.get(process.env.VUE_APP_API_URL)
+      .then(response => this.tasks = response.data)
+      .catch(err => console.log(err))
   },
 
   methods: {
     changeCompleted(id) {
       let task = this.tasks.find(task => task.id == id)
       task.completed = !task.completed
+      axios.put(process.env.VUE_APP_API_URL, task)
+        .then(response => console.log(response.data))
+        .catch(err => console.log(err))
     },
   },
 }
