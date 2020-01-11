@@ -27,4 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     }
     //mentsük el
     file_put_contents('./tasks.json', json_encode($tasks));
+    echo json_encode(($task));
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $task = file_get_contents('php://input');
+    $task = json_decode($task);
+    $task->id = uniqid();
+    $task->created = date('Y-m-d');
+    array_push($tasks, $task);
+    file_put_contents('./tasks.json', json_encode($tasks));
+    echo json_encode($task);
 }
