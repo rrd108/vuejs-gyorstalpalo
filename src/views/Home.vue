@@ -1,16 +1,30 @@
 <template>
   <div>
     <h1>Home</h1>
-    <form>
-      <input type="text" v-model="task" placeholder="Add new task">
-      <input type="date" @blur="addTask" v-model="due">
+    <form class="row">
+      <input type="text" v-model="task" placeholder="Add new task" class="column small-7">
+      <input type="date" @blur="addTask" v-model="due" class="column small-5">
     </form>
     <ul>
       <li v-for="task in tasks" :key="task.id" :class="{completed: task.completed}">
-        <input @click="changeCompleted(task.id)" type="checkbox" :checked=task.completed>
-        {{task.name}}
-        <span class="due">{{task.due}}</span>
-        <span :class="{created: task.created}">{{task.created}}</span>
+        <div class="row">
+          <span class="small-1">
+            <input @click="changeCompleted(task.id)" type="checkbox" :checked="task.completed">
+          </span>
+          <span class="small-9">{{task.name}}</span>
+          <i class="fi-pencil small-1 mini"></i>
+          <i class="fi-trash small-1 mini"></i>
+        </div>
+        <div class="row mini">
+          <span class="due column small-6">
+            <i class="fi-flag"></i>
+            {{task.due}}
+          </span>
+          <span :class="{created: task.created}" class="column small-6 text-right">
+            <i class="fi-calendar"></i>
+            {{task.created}}
+          </span>
+        </div>
       </li>
     </ul>
   </div>
@@ -97,18 +111,11 @@ li:hover {
   color: white;
   transition: 0.5s;
 }
-form {
-  display: flex;
-}
 input[type=text] {
-  flex-grow: 3;
   font-size: 1.5rem;
   height: 2.5rem;
 }
-.created {
-  font-size: .75rem;
-  background: #aaa;
-  color: #fff;
-  padding: .25rem;
+.mini {
+  font-size: .85rem;
 }
 </style>

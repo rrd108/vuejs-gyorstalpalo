@@ -8,7 +8,15 @@
   </div>
 </template>
 
-<style scoped>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Quicksand:500');
+@import url('./assets/foundation.min.css');
+@import url('./assets/foundation-icons.css');
+
+#app {
+  font-family: 'Quicksand', sans-serif;
+}
+
 #nav {
   text-align: center;
   padding-top: 20px;
