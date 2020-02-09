@@ -5,8 +5,14 @@
       <input type="text" v-model="task" placeholder="Add new task" class="column small-7">
       <input type="date" @blur="addTask" v-model="due" class="column small-5">
     </form>
+    <div class="row">
+      <div class="column small-12">
+        <i class="fi-check" @click="toogleCompleted" title="Kész feladatok elrejtése / megmutatása"></i>
+      </div>
+    </div>
     <ul>
-      <li v-for="task in tasks" :key="task.id" :class="{completed: task.completed}">
+      <li v-for="task in tasks" :key="task.id" :class="{completed: task.completed}"
+      v-show="!task.completed || (showCompleted && task.completed)">
         <div class="row">
           <span class="small-1">
             <input @click="changeCompleted(task.id)" type="checkbox" :checked="task.completed">
@@ -38,6 +44,7 @@ export default {
 
   data() {
     return {
+      showCompleted : true,
       task: '',
       tasks: [],
       due: (new Date((new Date).setDate((new Date).getDate() + 5))).toISOString().split('T')[0]
@@ -71,6 +78,9 @@ export default {
         .then(response => console.log(response.data))
         .catch(err => console.log(err))
     },
+    toogleCompleted() {
+      this.showCompleted = !this.showCompleted
+    }
   },
 }
 </script>
