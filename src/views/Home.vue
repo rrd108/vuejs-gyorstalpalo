@@ -7,7 +7,13 @@
     </form>
     <div class="row">
       <div class="column small-12">
-        <i class="fi-check" @click="toogleCompleted" title="Kész feladatok elrejtése / megmutatása"></i>
+        <div class="row">
+          <i class="fi-check column small-2" @click="toogleCompleted" title="Kész feladatok elrejtése / megmutatása"></i>
+          <div class="column small-10 text-right">
+            <i class="fi-checkbox" title="nyitott">{{open}} </i>
+            <i class="fi-flag" title="lejárt">{{overdue}}</i>
+          </div>
+        </div>
       </div>
     </div>
     <ul>
@@ -48,6 +54,15 @@ export default {
       task: '',
       tasks: [],
       due: (new Date((new Date).setDate((new Date).getDate() + 5))).toISOString().split('T')[0]
+    }
+  },
+
+  computed: {
+    open: function() {
+      return this.tasks.filter(task => !task.completed).length
+    },
+    overdue: function() {
+      return this.tasks.filter(task => !task.completed && task.due < new Date().toISOString()).length
     }
   },
 
