@@ -23,7 +23,10 @@
           <span class="small-1">
             <input @click="changeCompleted(task.id)" type="checkbox" :checked="task.completed">
           </span>
-          <span class="small-9">{{task.name}}</span>
+          <span class="small-8">{{task.name}}</span>
+          <router-link :to="'tasks/' + task.id" class="small-1 mini">
+            <i class="fi-eye"></i>
+          </router-link>
           <i class="fi-pencil small-1 mini"></i>
           <i class="fi-trash small-1 mini"></i>
         </div>
