@@ -11,7 +11,7 @@
           <i class="fi-check column small-2" @click="toogleCompleted" title="Kész feladatok elrejtése / megmutatása"></i>
           <div class="column small-10 text-right">
             <i class="fi-checkbox" title="nyitott">{{open}} </i>
-            <i class="fi-flag" title="lejárt">{{overdue}}</i>
+            <i class="fi-flag" title="lejárt">{{overdueTasks.length}}</i>
           </div>
         </div>
       </div>
@@ -47,6 +47,7 @@
 
 <script>
 import axios from 'axios'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'home',
@@ -55,24 +56,18 @@ export default {
     return {
       showCompleted : true,
       task: '',
-      tasks: [],
       due: (new Date((new Date).setDate((new Date).getDate() + 5))).toISOString().split('T')[0]
     }
   },
 
   computed: {
+    ...mapGetters(['overdueTasks']),
     open: function() {
       return this.tasks.filter(task => !task.completed).length
     },
-    overdue: function() {
-      return this.tasks.filter(task => !task.completed && task.due < new Date().toISOString()).length
+    tasks: function() {
+      return this.$store.state.tasks
     }
-  },
-
-  created() {
-    axios.get(process.env.VUE_APP_API_URL)
-      .then(response => this.tasks = response.data)
-      .catch(err => console.log(err))
   },
 
   methods: {
