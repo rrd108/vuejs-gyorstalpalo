@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <h1>Task component</h1>
-    <p>{{$route.params.id}}</p>
-  </div>
+  <ul>
+    <task :task="task" :showCompleted="true" />
+  </ul>
 </template>
 
 <script>
+import Task from "@/components/Task.vue"
+
 export default {
-    //this.$route.params.id
+  components: {
+    Task
+  },
+  data() {
+    return {
+      task: this.$store.state.tasks.find(task => task.id == this.$route.params.id)
+    }
+  }
 }
 </script>
 
