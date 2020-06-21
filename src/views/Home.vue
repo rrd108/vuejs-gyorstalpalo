@@ -17,7 +17,7 @@
       </div>
     </div>
     <ul>
-      <task v-for="task in tasks" :key="task.id" :task="task" :showCompleted="showCompleted" />
+      <task @editIconClicked="edit" v-for="task in tasks" :key="task.id" :task="task" :showCompleted="showCompleted" />
     </ul>
   </div>
 </template>
@@ -65,6 +65,9 @@ export default {
           this.task = ''
           })
         .catch(err => console.log(err))
+    edit(task) {
+      this.task = task.name;
+      this.due = task.due;
     },
     toogleCompleted() {
       this.showCompleted = !this.showCompleted

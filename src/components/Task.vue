@@ -50,9 +50,10 @@ export default {
     edit() {
       //this.task = task.name
       //this.due = task.due
-    },
+      this.$emit("editIconClicked", this.task);
+    }
   }
-}
+};
 </script>
 
 <style>
