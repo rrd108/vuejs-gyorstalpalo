@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Task from "@/components/Task.vue"
+import Task from "@/components/Task.vue";
 
 export default {
   components: {
@@ -13,12 +13,12 @@ export default {
   },
   data() {
     return {
-      task: this.$store.state.tasks.find(task => task.id == this.$route.params.id)
-    }
+      task: this.$store.state.tasks.find(
+        task => task.id == this.$route.params.id
+      )
+    };
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

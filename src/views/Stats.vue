@@ -3,19 +3,19 @@
     <h1>Stats</h1>
     <div class="row">
       <div class="column small-5 w1">
-        <h2>{{$store.state.tasks.length}}</h2>
+        <h2>{{ $store.state.tasks.length }}</h2>
         <i class="fi-list-thumbnails">Összes</i>
       </div>
       <div class="column small-5 w2">
-        <h2>{{$store.state.tasks.filter(task => task.completed).length}}</h2>
+        <h2>{{ $store.state.tasks.filter(task => task.completed).length }}</h2>
         <i class="fi-list-thumbnails">Kész</i>
       </div>
       <div class="column small-5 w3">
-        <h2>{{$store.state.tasks.filter(task => !task.completed).length}}</h2>
+        <h2>{{ $store.state.tasks.filter(task => !task.completed).length }}</h2>
         <i class="fi-list-thumbnails">Nyitva</i>
       </div>
       <div class="column small-5 w4">
-        <h2>{{overdueTasks.length}}</h2>
+        <h2>{{ overdueTasks.length }}</h2>
         <i class="fi-list-thumbnails">Lejárt</i>
       </div>
     </div>
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'Stats',
-  computed: mapGetters(['overdueTasks'])
-}
+  name: "Stats",
+  computed: mapGetters(["overdueTasks"])
+};
 </script>
 
 <style scoped>
@@ -47,12 +47,12 @@ div.row div.column {
   background: #5a3bb3;
 }
 .w2 {
-  background: #0192A5;
+  background: #0192a5;
 }
 .w3 {
-  background: #CD4C26;
+  background: #cd4c26;
 }
 .w4 {
-  background: #EA8906;
+  background: #ea8906;
 }
 </style>

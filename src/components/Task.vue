@@ -1,51 +1,63 @@
 <template>
   <div>
-    <li :class="{completed: task.completed}"
-      v-show="!task.completed || (showCompleted && task.completed)">
-        <div class="row">
-          <span class="small-1">
-            <input @click="changeCompleted()" type="checkbox" :checked="task.completed">
-          </span>
-          <span class="small-8">{{task.name}}</span>
-          <router-link :to="'tasks/' + task.id" class="small-1 mini">
-            <i class="fi-eye"></i>
-          </router-link>
-          <i @click="edit()" class="fi-pencil small-1 mini"></i>
-          <i class="fi-trash small-1 mini"></i>
-        </div>
-        <div class="row mini">
-          <span class="due column small-6">
-            <i class="fi-flag"></i>
-            {{task.due}}
-          </span>
-          <span :class="{created: task.created}" class="column small-6 text-right">
-            <i class="fi-calendar"></i>
-            {{task.created}}
-          </span>
-        </div>
-      </li>
+    <li
+      :class="{ completed: task.completed }"
+      v-show="!task.completed || (showCompleted && task.completed)"
+    >
+      <div class="row">
+        <span class="small-1">
+          <input
+            @click="changeCompleted()"
+            type="checkbox"
+            :checked="task.completed"
+          />
+        </span>
+        <span class="small-8">{{ task.name }}</span>
+        <router-link :to="'tasks/' + task.id" class="small-1 mini">
+          <i class="fi-eye"></i>
+        </router-link>
+        <i @click="edit()" class="fi-pencil small-1 mini"></i>
+        <i class="fi-trash small-1 mini"></i>
+      </div>
+      <div class="row mini">
+        <span class="due column small-6">
+          <i class="fi-flag"></i>
+          {{ task.due }}
+        </span>
+        <span
+          :class="{ created: task.created }"
+          class="column small-6 text-right"
+        >
+          <i class="fi-calendar"></i>
+          {{ task.created }}
+        </span>
+      </div>
+    </li>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   // props: ['task']
   props: {
-      showCompleted: {type: Boolean},
-      task: {
-          type: Object,
-          default : function() {return {id: 0}},
-          required: true
-      }
+    showCompleted: { type: Boolean },
+    task: {
+      type: Object,
+      default: function() {
+        return { id: 0 };
+      },
+      required: true
+    }
   },
   methods: {
     changeCompleted() {
-      this.task.completed = !this.task.completed
-      axios.put(process.env.VUE_APP_API_URL, this.task)
+      this.task.completed = !this.task.completed;
+      axios
+        .put(process.env.VUE_APP_API_URL, this.task)
         .then(response => console.log(response.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     },
     edit() {
       //this.task = task.name
@@ -86,6 +98,6 @@ li:hover {
   transition: 0.5s;
 }
 .mini {
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 </style>

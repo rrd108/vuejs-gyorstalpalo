@@ -13,8 +13,7 @@ const routes = [
   {
     path: "/stats",
     name: "stats",
-    component: () =>
-      import("../views/Stats.vue")
+    component: () => import("../views/Stats.vue")
   },
   {
     path: "/tasks/:id",
