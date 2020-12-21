@@ -26,4 +26,6 @@ A sorozat magyar videói itt találhatóak: https://www.youtube.com/watch?v=N7ve
 
 0. Mi az a PWA? https://www.youtube.com/watch?v=N7vemLnXUpE
 
+# Facebook csoport
+
 Magyar nyelvű vue.js Facebook csoport: https://www.facebook.com/groups/huvuejs
