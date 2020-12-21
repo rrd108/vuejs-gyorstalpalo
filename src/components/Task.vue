@@ -17,7 +17,7 @@
           <i class="fi-eye"></i>
         </router-link>
         <i @click="edit()" class="fi-pencil small-1 mini fixme"></i>
-        <i class="fi-trash small-1 mini"></i>
+        <i @click="trash()" class="fi-trash small-1 mini"></i>
       </div>
       <div class="row mini">
         <span class="due column small-6">
@@ -59,9 +59,10 @@ export default {
         .then(response => console.log(response.data))
         .catch(err => console.log(err));
     },
+    trash() {
+      this.$store.dispatch("deleteTask", this.task);
+    },
     edit() {
-      //this.task = task.name
-      //this.due = task.due
       this.$emit("editIconClicked", this.task);
     }
   }
