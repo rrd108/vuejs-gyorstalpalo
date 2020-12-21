@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/stats">Stats</router-link> |
-      <router-link to="/login" v-if="!loggedIn">Login</router-link>
+      <router-link to="/login" v-if="!loggedIn" class="fixme">Login</router-link>
       <router-link to="/logout" v-if="loggedIn">Logout</router-link>
     </div>
     <router-view />
@@ -45,4 +45,9 @@ export default {
   padding: 10px;
   font-size: 25px;
 }
+
+.fixme {
+  color: #ccc !important;
+}
+
 </style>

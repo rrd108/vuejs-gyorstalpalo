@@ -16,7 +16,7 @@
         <router-link :to="'tasks/' + task.id" class="small-1 mini">
           <i class="fi-eye"></i>
         </router-link>
-        <i @click="edit()" class="fi-pencil small-1 mini"></i>
+        <i @click="edit()" class="fi-pencil small-1 mini fixme"></i>
         <i class="fi-trash small-1 mini"></i>
       </div>
       <div class="row mini">
