@@ -24,7 +24,10 @@ A gyorstalpaló magyar videói itt találhatóak: https://www.youtube.com/watch?
 
 A sorozat magyar videói itt találhatóak: https://www.youtube.com/watch?v=N7vemLnXUpE&list=PLbcJ_vPJW9XOwXCCNvzymENMnbJw8FQLF
 
-0. Mi az a PWA? https://www.youtube.com/watch?v=N7vemLnXUpE
+0. Mi az a PWA? https://www.youtube.com/watch?v=N7vemLnXUpE&list=PLbcJ_vPJW9XOwXCCNvzymENMnbJw8FQLF&index=1
+1. Hogyan tegyük telepíthetővé a progresszív web alkalmazásunkat? https://www.youtube.com/watch?v=FOhWcG3QY7g&list=PLbcJ_vPJW9XOwXCCNvzymENMnbJw8FQLF&index=2
+2. Mi az a service worker? https://www.youtube.com/watch?v=jmU3UqZ13bs&list=PLbcJ_vPJW9XOwXCCNvzymENMnbJw8FQLF&index=3
+3. Precaching
 
 # Facebook csoport
 
