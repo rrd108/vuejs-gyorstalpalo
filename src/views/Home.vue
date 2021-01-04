@@ -59,6 +59,12 @@ export default {
     };
   },
 
+  /* created(){
+    navigator.serviceWorker.addEventListener('message', event => {
+      console.warn(event);
+    });
+  }, */
+
   computed: {
     ...mapGetters(["overdueTasks"]),
     open: function() {

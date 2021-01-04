@@ -6,6 +6,7 @@ module.exports = {
     workboxPluginMode: "GenerateSW",
     workboxOptions: {
       exclude: ["robots.txt", /\.map$/],
+      importScripts: ['/backgroundSyncMessagePlugin.js', '/fallback-on-error-plugin.js'],
       runtimeCaching: [
         {
           urlPattern: process.env.VUE_APP_API_URL,

@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "postbuild": "cp src/backgroundSyncMessagePlugin.js dist/ && cp src/fallback-on-error-plugin.js dist/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@rrd108/workbox-backgroundsync-message": "file:../workbox-backgroundsync-message",
     "axios": "^0.19.2",
     "core-js": "^3.8.1",
     "pwa": "^1.9.7",
