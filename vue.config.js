@@ -34,7 +34,20 @@ module.exports = {
               maxEntries: 5
             }
           }
-        }
+        },
+        {
+          urlPattern: process.env.VUE_APP_API_URL,
+          method: 'POST',
+          handler: "NetworkOnly",
+          options: {
+            backgroundSync: {
+              name: 'new-tasks-queue',
+              options: {
+                maxRetentionTime: 24 * 60,    // minutes
+              },
+            },
+          },
+        },
       ]
     }
   }

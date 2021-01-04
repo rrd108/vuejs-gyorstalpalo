@@ -82,7 +82,15 @@ export default {
           this.tasks.push(response.data);
           this.task = "";
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          if (err.message != 'Network Error') {
+            console.error(err)
+            return
+          }
+          task.id = '_' + Date.now()
+          this.tasks.push(task)
+          this.task = ''
+        })
     },
     edit(task) {
       this.task = task.name;
