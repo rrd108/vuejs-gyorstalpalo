@@ -1,6 +1,6 @@
 //import BackgroundSyncPlugin from 'workbox-background-sync'
 
-class BackgroundSyncMessagePlugin /*extends BackgroundSyncPlugin*/ {
+class BackgroundSyncMessagePlugin extends BackgroundSyncPlugin {
 
   /*constructor(...queueArgs) {
     this._queue = new Queue(...queueArgs)

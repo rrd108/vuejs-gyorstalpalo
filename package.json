@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "postbuild": "cp src/backgroundSyncMessagePlugin.js dist/ && cp src/fallback-on-error-plugin.js dist/",
+    "postbuild": "cp src/backgroundSyncMessagePlugin.js dist/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
