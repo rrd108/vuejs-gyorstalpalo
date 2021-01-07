@@ -1,15 +1,25 @@
-//import BackgroundSyncPlugin from 'workbox-background-sync'
+/*
+workbox.routing.registerRoute(
+    "https://tasks.webmania.cc/api/",
+    new workbox.strategies.NetworkOnly({
+        plugins: [
+            new BackgroundSyncMessagePlugin("new-tasks-queue", { maxRetentionTime: 1440 })
+        ]
+    }),
+    'POST'
+);
+*/
 
-class BackgroundSyncMessagePlugin extends BackgroundSyncPlugin {
+class BackgroundSyncMessagePlugin extends workbox.backgroundSync.Plugin {
 
-  /*constructor(...queueArgs) {
-    this._queue = new Queue(...queueArgs)
-    this.fetchDidFail = this.fetchDidFail.bind(this)
-  }*/
+  constructor(...queueArgs) {
+    super(queueArgs)
+    console.warn('BackgroundSyncMessagePlugin constructor called. queue args:', queueArgs)
+  }
 
-  /* fetchDidFail(request) {
+  fetchDidFail(request) {
     this._queue.pushRequest(request)
-  } */
+  }
 
   fetchDidSucceed({request, response, event, state}) {
     console.warn('fetchDidSucceed', {request, response, event, state})
