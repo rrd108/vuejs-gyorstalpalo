@@ -59,11 +59,11 @@ export default {
     };
   },
 
-  /* created(){
+  created(){
     navigator.serviceWorker.addEventListener('message', event => {
-      console.warn(event);
+      console.warn('message got in home', event.data);
     });
-  }, */
+  },
 
   computed: {
     ...mapGetters(["overdueTasks"]),
