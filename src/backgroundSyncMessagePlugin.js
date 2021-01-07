@@ -16,7 +16,8 @@ class BackgroundSyncMessagePlugin extends workbox.backgroundSync.Plugin {
     console.info('...queueArgs', ...queueArgs)
     super(...queueArgs)
     console.warn('BackgroundSyncMessagePlugin', this)
-    this.fetchDidSucceed = this.fetchDidSucceed.bind(this)
+    // fetchDidSucceed callback is not called in backgroundSync
+    //this.fetchDidSucceed = this.fetchDidSucceed.bind(this)
   }
 
   fetchDidFail({ request }) {
@@ -24,11 +25,13 @@ class BackgroundSyncMessagePlugin extends workbox.backgroundSync.Plugin {
     console.warn('fetchDidFail', { request })
   }
 
-  fetchDidSucceed({request, response, event, state}) {
+  /*fetchDidSucceed({request, response, event, state}) {
     console.warn('fetchDidSucceed', {request, response, event, state})
     return response
-  }
-  /*handlerWillRespond({request, response, event, state}) {
+  }*/
+  /*All lifecycle callbacks starting with handler are new in Workbox v6.
+
+  handlerWillRespond({request, response, event, state}) {
     console.warn('handlerWillRespond', {request, response, event, state})
     return response
   }
