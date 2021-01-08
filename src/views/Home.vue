@@ -93,7 +93,9 @@ export default {
             console.error(err)
             return
           }
-          task.id = '_' + Date.now()
+          const today = (new Date()).toISOString().split('T')[0]
+          task.id = '_' + today
+          task.created = today
           this.tasks.push(task)
           this.task = ''
         })
