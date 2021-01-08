@@ -3,15 +3,12 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended'
-  ],
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
+  extends: ["plugin:vue/essential", "@vue/prettier"],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    "no-console": "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+  },
+  parserOptions: {
+    parser: "babel-eslint"
   }
-}
+};

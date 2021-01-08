@@ -83,15 +83,15 @@ export default {
           this.task = "";
         })
         .catch(err => {
-          if (err.message != 'Network Error') {
+          if (err.message != "Network Error") {
             console.error(err);
             return;
           }
-          const today = (new Date()).toISOString().split('T')[0]
-          task.id = '_' + today;
+          const today = new Date().toISOString().split("T")[0];
+          task.id = "_" + today;
           task.created = today;
           this.tasks.push(task);
-          this.task = '';
+          this.task = "";
         })
     },
     edit(task) {
