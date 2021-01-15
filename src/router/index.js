@@ -11,6 +11,11 @@ const routes = [
     component: Home
   },
   {
+    path: "/share-target",
+    name: "share-target",
+    component: () => import("../views/ShareTarget.vue")
+  },
+  {
     path: "/stats",
     name: "stats",
     component: () => import("../views/Stats.vue")
