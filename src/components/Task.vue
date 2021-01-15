@@ -12,10 +12,15 @@
             :checked="task.completed"
           />
         </span>
-        <span class="small-8">{{ task.name }}</span>
+        <span class="small-7">{{ task.name }}</span>
         <router-link :to="'tasks/' + task.id" class="small-1 mini">
           <i class="fi-eye"></i>
         </router-link>
+        <i
+          @click="share(task)"
+          class="fi-share small-1 mini"
+          v-show="canShare"
+        ></i>
         <i @click="edit()" class="fi-pencil small-1 mini fixme"></i>
         <i @click="trash()" class="fi-trash small-1 mini"></i>
       </div>
@@ -51,6 +56,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      canShare: window.navigator.share ? true : true
+    };
+  },
   methods: {
     changeCompleted() {
       this.task.completed = !this.task.completed;
@@ -61,6 +71,18 @@ export default {
     },
     edit() {
       this.$emit("editIconClicked", this.task);
+    },
+    share(task) {
+      navigator
+        .share({
+          text: task.name,
+          url:
+            window.location.href.search(/\/tasks\//) == -1
+              ? `${window.location.href}tasks/${task.id}`
+              : window.location.href
+        })
+        .then(() => console.log("Successful share"))
+        .catch(error => console.log("Error sharing", error));
     },
     trash() {
       this.$store.dispatch("deleteTask", this.task);
