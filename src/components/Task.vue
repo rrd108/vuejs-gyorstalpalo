@@ -59,11 +59,11 @@ export default {
         .then(response => console.log(response.data))
         .catch(err => console.log(err));
     },
-    trash() {
-      this.$store.dispatch("deleteTask", this.task);
-    },
     edit() {
       this.$emit("editIconClicked", this.task);
+    },
+    trash() {
+      this.$store.dispatch("deleteTask", this.task);
     }
   }
 };
